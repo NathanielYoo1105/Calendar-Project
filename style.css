@@ -1,17 +1,40 @@
 body {
     font-family: sans-serif;
-    text-align: center;
-    background-color: #f4f4f9;
     margin: 0;
-    padding: 20px;
+    height: 100vh;
+    display: flex;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: clamp(1.5rem, 2vw, 2.5rem); /* scales with screen size */
+.layout {
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }
 
+/* Calendar takes left half */
+.calendar-container {
+    flex: 1; /* 50% width */
+    border-right: 2px solid #ccc;
+    background-color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    aspect-ratio: auto; /* disable fixed ratio since we want it to fill half */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Right side content */
+.content {
+    flex: 1; /* 50% width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+}
+
+/* Buttons */
 button {
     padding: 10px 20px;
     background-color: green;
@@ -22,26 +45,11 @@ button {
     font-size: clamp(0.8rem, 1.2vw, 1rem);
     transition: background-color 0.3s;
 }
-
 button:hover {
     background-color: darkgreen;
 }
 
-.calendar-container {
-    display: inline-block;
-    margin-top: 30px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-
-    /* ✅ Fixed aspect ratio */
-    aspect-ratio: 4 / 3;
-    width: 80vw;
-    max-width: 600px;
-}
-
+/* Calendar table */
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -57,16 +65,17 @@ button:hover {
     width: 100%;
     height: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* ✅ Makes cells equal size */
+    table-layout: fixed;
+    flex-grow: 1;
 }
 
 .calendar-grid th,
 .calendar-grid td {
-    width: 14.28%; /* 100% / 7 days */
-    height: calc(100% / 6); /* Up to 6 rows */
+    width: 14.28%;
+    height: calc(100% / 6);
     text-align: center;
     border: 1px solid #ddd;
-    font-size: clamp(0.6rem, 1vw, 1rem); /* ✅ Responsive text size */
+    font-size: clamp(0.6rem, 1vw, 1rem);
 }
 
 .calendar-grid th {
