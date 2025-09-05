@@ -7,35 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Wow Cool Calendar Project</h1>
-
-    <!-- Login button -->
-    <button id="myButton">Log In</button>
-    <p id="message"></p>
-
-    <!-- Calendar -->
-    <div class="calendar-container">
-        <div class="calendar-header">
-            <button id="prevMonth">Previous</button>
-            <h2 id="monthYear"></h2>
-            <button id="nextMonth">Next</button>
+    <div class="layout">
+        <!-- Left side: Calendar -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth">Previous</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">Next</button>
+            </div>
+            <table class="calendar-grid">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- Days will be dynamically added -->
+                </tbody>
+            </table>
         </div>
-        <table class="calendar-grid">
-            <thead>
-                <tr>
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                </tr>
-            </thead>
-            <tbody id="calendarBody">
-                <!-- Days will be dynamically added by script.js -->
-            </tbody>
-        </table>
+
+        <!-- Right side: Title + login -->
+        <div class="content">
+            <h1>Wow Cool Calendar Project</h1>
+            <button id="myButton">Log In</button>
+            <p id="message"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
