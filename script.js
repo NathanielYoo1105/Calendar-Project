@@ -1,11 +1,9 @@
 // ===== LOGIN BUTTON =====
 const myButton = document.getElementById("myButton");
-const messageParagraph = document.getElementById("message");
 
+// Temporarily disabled click action
 myButton.addEventListener("click", () => {
-  messageParagraph.textContent = "Button was clicked!";
-  myButton.style.backgroundColor = "blue";
-  myButton.style.color = "white";
+  // Do nothing for now
 });
 
 // ===== MINI CALENDAR =====
@@ -38,7 +36,6 @@ function renderCalendar(date) {
     const cell = document.createElement("td");
     cell.textContent = day;
 
-    // Highlight today
     const today = new Date();
     if (
       day === today.getDate() &&
@@ -77,7 +74,7 @@ renderCalendar(currentDate);
 const timeColumn = document.querySelector(".time-column");
 const dayColumns = document.querySelector(".day-columns");
 
-// Fill time column (0–23)
+// Generate 24-hour labels
 for (let hour = 0; hour < 24; hour++) {
   const div = document.createElement("div");
   const label =
@@ -92,7 +89,7 @@ for (let hour = 0; hour < 24; hour++) {
   timeColumn.appendChild(div);
 }
 
-// Fill each day column with 24 rows
+// Generate empty hour slots for each day
 dayColumns.querySelectorAll(".day").forEach((day) => {
   for (let i = 0; i < 24; i++) {
     const slot = document.createElement("div");
