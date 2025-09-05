@@ -1,11 +1,67 @@
 body {
     font-family: sans-serif;
     text-align: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
 }
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
 button {
     padding: 10px 20px;
     background-color: green;
     color: white;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.calendar-container {
+    display: inline-block;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-grid th,
+.calendar-grid td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.calendar-grid th {
+    background-color: #f0f0f0;
+}
+
+.calendar-grid td:hover {
+    background-color: #e6ffe6;
     cursor: pointer;
 }
