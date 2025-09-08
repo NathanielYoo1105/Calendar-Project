@@ -1,9 +1,23 @@
-// ===== LOGIN BUTTON =====
+// ===== LOGIN MODAL =====
 const myButton = document.getElementById("myButton");
+const modal = document.getElementById("loginModal");
+const closeBtn = document.querySelector(".close-btn");
 
-// Temporarily disabled click action
+// Open modal
 myButton.addEventListener("click", () => {
-  // Do nothing for now
+  modal.style.display = "flex";
+});
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal when clicking outside the box
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 });
 
 // ===== MINI CALENDAR =====
