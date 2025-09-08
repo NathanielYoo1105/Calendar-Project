@@ -1,22 +1,38 @@
 // ===== LOGIN MODAL =====
-const myButton = document.getElementById("myButton");
-const modal = document.getElementById("loginModal");
-const closeBtn = document.querySelector(".close-btn");
+const logInButton = document.getElementById("logInButton");
+const loginModal = document.getElementById("loginModal");
+const loginClose = loginModal.querySelector(".close-btn");
 
-// Open modal
-myButton.addEventListener("click", () => {
-  modal.style.display = "flex";
+logInButton.addEventListener("click", () => {
+  loginModal.style.display = "flex";
 });
 
-// Close modal
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
+loginClose.addEventListener("click", () => {
+  loginModal.style.display = "none";
 });
 
-// Close modal when clicking outside the box
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+  if (e.target === loginModal) {
+    loginModal.style.display = "none";
+  }
+});
+
+// ===== SIGN UP MODAL =====
+const signUpButton = document.getElementById("signUpButton");
+const signUpModal = document.getElementById("signUpModal");
+const signUpClose = signUpModal.querySelector(".close-btn");
+
+signUpButton.addEventListener("click", () => {
+  signUpModal.style.display = "flex";
+});
+
+signUpClose.addEventListener("click", () => {
+  signUpModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === signUpModal) {
+    signUpModal.style.display = "none";
   }
 });
 
@@ -88,7 +104,6 @@ renderCalendar(currentDate);
 const timeColumn = document.querySelector(".time-column");
 const dayColumns = document.querySelector(".day-columns");
 
-// Generate 24-hour labels
 for (let hour = 0; hour < 24; hour++) {
   const div = document.createElement("div");
   const label =
@@ -103,7 +118,6 @@ for (let hour = 0; hour < 24; hour++) {
   timeColumn.appendChild(div);
 }
 
-// Generate empty hour slots for each day
 dayColumns.querySelectorAll(".day").forEach((day) => {
   for (let i = 0; i < 24; i++) {
     const slot = document.createElement("div");
