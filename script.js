@@ -1,108 +1,57 @@
-// ===== LOGIN MODAL =====
-const logInButton = document.getElementById("logInButton");
-const loginModal = document.getElementById("loginModal");
-const loginClose = loginModal.querySelector(".close-btn");
-
-logInButton.addEventListener("click", () => {
-  loginModal.style.display = "flex";
-});
-
-loginClose.addEventListener("click", () => {
-  loginModal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === loginModal) {
-    loginModal.style.display = "none";
-  }
-});
-
-// ===== MINI CALENDAR =====
-const monthYear = document.getElementById("monthYear");
+// Calendar
 const calendarBody = document.getElementById("calendarBody");
-const prevMonthBtn = document.getElementById("prevMonth");
-const nextMonthBtn = document.getElementById("nextMonth");
+const monthYear = document.getElementById("monthYear");
 
 let currentDate = new Date();
 
 function renderCalendar(date) {
   const year = date.getFullYear();
   const month = date.getMonth();
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
 
-  monthYear.textContent =
-    date.toLocaleString("default", { month: "long" }) + " " + year;
+  monthYear.textContent = date.toLocaleString("default", { month: "long" }) + " " + year;
 
   calendarBody.innerHTML = "";
 
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
   let row = document.createElement("tr");
-
-  for (let i = 0; i < firstDay; i++) {
+  for (let i = 0; i < firstDay.getDay(); i++) {
     row.appendChild(document.createElement("td"));
   }
 
-  for (let day = 1; day <= daysInMonth; day++) {
-    const cell = document.createElement("td");
-    cell.textContent = day;
-
-    const today = new Date();
-    if (
-      day === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
-    ) {
-      cell.classList.add("today");
-    }
-
-    row.appendChild(cell);
-
-    if ((firstDay + day) % 7 === 0) {
+  for (let day = 1; day <= lastDay.getDate(); day++) {
+    if ((row.children.length) % 7 === 0 && row.children.length !== 0) {
       calendarBody.appendChild(row);
       row = document.createElement("tr");
     }
+    const cell = document.createElement("td");
+    cell.textContent = day;
+    row.appendChild(cell);
   }
-
   if (row.children.length > 0) {
     calendarBody.appendChild(row);
   }
 }
 
-prevMonthBtn.addEventListener("click", () => {
+document.getElementById("prevMonth").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar(currentDate);
 });
 
-nextMonthBtn.addEventListener("click", () => {
+document.getElementById("nextMonth").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() + 1);
   renderCalendar(currentDate);
 });
 
 renderCalendar(currentDate);
 
-// ===== WEEK VIEW 24-HOURS =====
-const timeColumn = document.querySelector(".time-column");
-const dayColumns = document.querySelector(".day-columns");
+// Modal
+const modal = document.getElementById("loginModal");
+const openBtn = document.getElementById("myButton");
+const closeBtn = document.getElementById("closeModal");
 
-for (let hour = 0; hour < 24; hour++) {
-  const div = document.createElement("div");
-  const label =
-    hour === 0
-      ? "12 AM"
-      : hour < 12
-      ? hour + " AM"
-      : hour === 12
-      ? "12 PM"
-      : hour - 12 + " PM";
-  div.textContent = label;
-  timeColumn.appendChild(div);
-}
-
-dayColumns.querySelectorAll(".day").forEach((day) => {
-  for (let i = 0; i < 24; i++) {
-    const slot = document.createElement("div");
-    slot.classList.add("hour-slot");
-    day.appendChild(slot);
-  }
-});
+openBtn.onclick = () => modal.style.display = "block";
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => {
+  if (event.target === modal) modal.style.display = "none";
+};
