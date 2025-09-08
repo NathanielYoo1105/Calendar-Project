@@ -142,7 +142,7 @@ button:hover {
 
 /* ===== Modal Styles ===== */
 .modal {
-  display: none;
+  display: none; /* <-- FIXED: hidden by default */
   position: fixed;
   z-index: 1000;
   left: 0; 
@@ -150,7 +150,6 @@ button:hover {
   width: 100%; 
   height: 100%;
   background-color: rgba(0,0,0,0.5);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
