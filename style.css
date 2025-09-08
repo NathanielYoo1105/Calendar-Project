@@ -142,7 +142,7 @@ button:hover {
 
 /* ===== Modal Styles ===== */
 .modal {
-  display: none; /* <-- FIXED: hidden by default */
+  display: none; /* hidden by default */
   position: fixed;
   z-index: 1000;
   left: 0; 
@@ -159,18 +159,8 @@ button:hover {
   max-width: 800px;
   padding: 20px;
   border-radius: 8px;
-  position: relative;
-}
-
-/* Login modal (white box) */
-.login-box {
   background: white;
-}
-
-/* Sign Up modal (yellow box, positioned left) */
-.signup-box {
-  background: #ffeb3b;
-  transform: translateX(-120px); /* shift left */
+  position: relative;
 }
 
 .close-btn {
