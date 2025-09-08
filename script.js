@@ -17,25 +17,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// ===== SIGN UP MODAL =====
-const signUpButton = document.getElementById("signUpButton");
-const signUpModal = document.getElementById("signUpModal");
-const signUpClose = signUpModal.querySelector(".close-btn");
-
-signUpButton.addEventListener("click", () => {
-  signUpModal.style.display = "flex";
-});
-
-signUpClose.addEventListener("click", () => {
-  signUpModal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === signUpModal) {
-    signUpModal.style.display = "none";
-  }
-});
-
 // ===== MINI CALENDAR =====
 const monthYear = document.getElementById("monthYear");
 const calendarBody = document.getElementById("calendarBody");
