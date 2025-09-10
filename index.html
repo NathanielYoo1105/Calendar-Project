@@ -14,9 +14,9 @@
       <h1 class="logo">My Calendar</h1>
       <div class="mini-calendar">
         <div class="calendar-header">
-          <button id="prevMonth">‹</button>
+          <button id="prevMonth" aria-label="Previous Month">‹</button>
           <h2 id="monthYear"></h2>
-          <button id="nextMonth">›</button>
+          <button id="nextMonth" aria-label="Next Month">›</button>
         </div>
         <table class="calendar-grid">
           <thead>
@@ -30,35 +30,41 @@
       </div>
     </aside>
 
-    <!-- Main Week View -->
+    <!-- Main Content -->
     <main class="main-view">
       <header class="topbar">
-        <h2>Week View</h2>
+        <button id="viewToggle" class="view-toggle">Week View</button>
         <div class="auth-buttons">
           <button id="logInButton">Log In</button>
         </div>
       </header>
 
-      <section class="event-grid">
+      <!-- Month View -->
+      <section id="monthView" class="month-view hidden">
+        <table class="calendar-grid big-calendar">
+          <thead>
+            <tr>
+              <th>Sun</th><th>Mon</th><th>Tue</th>
+              <th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+            </tr>
+          </thead>
+          <tbody id="bigCalendarBody"></tbody>
+        </table>
+      </section>
+
+      <!-- Week View -->
+      <section id="weekView" class="event-grid">
         <div class="time-column"></div>
-        <div class="day-columns">
-          <div class="day">Sunday</div>
-          <div class="day">Monday</div>
-          <div class="day">Tuesday</div>
-          <div class="day">Wednesday</div>
-          <div class="day">Thursday</div>
-          <div class="day">Friday</div>
-          <div class="day">Saturday</div>
-        </div>
+        <!-- JS will generate the 7 day columns -->
       </section>
     </main>
   </div>
 
   <!-- ===== Login Modal ===== -->
-  <div id="loginModal" class="modal">
+  <div id="loginModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="loginTitle">
     <div class="modal-content login-box">
-      <span class="close-btn">&times;</span>
-      <h2>Log In</h2>
+      <span class="close-btn" role="button" tabindex="0" aria-label="Close">&times;</span>
+      <h2 id="loginTitle">Log In</h2>
       <p>There is no log in function yet.</p>
     </div>
   </div>
