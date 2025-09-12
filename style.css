@@ -188,6 +188,42 @@ button:hover {
   border-bottom: 1px solid #f1f3f4;
   height: 60px;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* Stack inside hour slot for multiple events */
+.events-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Single event box */
+.event {
+  background-color: #81d4fa;
+  color: #000;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Delete button inside event */
+.delete-event {
+  margin-left: 4px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.delete-event:hover {
+  color: darkred;
 }
 
 /* Month view (big calendar) */
@@ -210,6 +246,16 @@ button:hover {
   height: 80px;
   vertical-align: top;
   padding: 4px;
+  position: relative;
+}
+
+/* Events wrapper inside month view cell */
+.events-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 /* Hide section */
@@ -234,7 +280,7 @@ button:hover {
   display: flex;
 }
 
-.modal.open {
+.modal.show {
   opacity: 1;
   pointer-events: auto;
 }
